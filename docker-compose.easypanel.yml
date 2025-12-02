@@ -1,0 +1,55 @@
+version: '3.8'
+
+services:
+  fluxoti:
+    build: .
+    image: axxia/fluxoti:latest
+    environment:
+      - RAILS_ENV=production
+      - SECRET_KEY_BASE=${SECRET_KEY_BASE}
+      - POSTGRES_HOST=fluxoti-db
+      - POSTGRES_USERNAME=chatwoot
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DATABASE=chatwoot
+      - REDIS_URL=redis://fluxoti-redis:6379
+      - FRONTEND_URL=${FRONTEND_URL}
+      - MAILER_SENDER_EMAIL=Fluxo Ti <suporte@axxiatech.com>
+    depends_on:
+      - fluxoti-db
+      - fluxoti-redis
+    ports:
+      - "3000:3000"
+
+  fluxoti-sidekiq:
+    build: .
+    image: axxia/fluxoti:latest
+    command: ['bundle', 'exec', 'sidekiq', '-C', 'config/sidekiq.yml']
+    environment:
+      - RAILS_ENV=production
+      - SECRET_KEY_BASE=${SECRET_KEY_BASE}
+      - POSTGRES_HOST=fluxoti-db
+      - POSTGRES_USERNAME=chatwoot
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DATABASE=chatwoot
+      - REDIS_URL=redis://fluxoti-redis:6379
+    depends_on:
+      - fluxoti-db
+      - fluxoti-redis
+
+  fluxoti-db:
+    image: postgres:15-alpine
+    environment:
+      - POSTGRES_DB=chatwoot
+      - POSTGRES_USER=chatwoot
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    volumes:
+      - fluxoti_postgres:/var/lib/postgresql/data
+
+  fluxoti-redis:
+    image: redis:7-alpine
+    volumes:
+      - fluxoti_redis:/data
+
+volumes:
+  fluxoti_postgres:
+  fluxoti_redis:
