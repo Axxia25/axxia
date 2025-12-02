@@ -1,4 +1,3 @@
-import KanbanView from "./kanban/Index.vue";
 import settings from './settings/settings.routes';
 import conversation from './conversation/conversation.routes';
 import { routes as searchRoutes } from '../../modules/search/search.routes';
@@ -30,14 +29,6 @@ export default {
         ...notificationRoutes,
         ...helpcenterRoutes.routes,
         ...campaignsRoutes.routes,
-        {
-          path: "kanban",
-          name: "kanban_board",
-          component: KanbanView,
-          meta: {
-            permissions: ["administrator", "agent", "custom_role"],
-          },
-        },
       ],
     },
     {

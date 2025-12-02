@@ -421,3 +421,16 @@ pt_BR:
       subject: 'Termine de configurar %{custom_domain}'
     ssl_status:
       custom_domain_not_configured: 'Domínio personalizado não está configurado'
+  KANBAN:
+    TITLE: "Pipeline de Clientes"
+    SUBTITLE: "Gerencie seus contatos através do funil de vendas"
+    SELECT_ATTRIBUTE: "Atributo do Pipeline"
+    SELECT_PLACEHOLDER: "Selecione um atributo..."
+    LOADING: "Carregando..."
+    REFRESH: "Atualizar"
+    CONTACT_MOVED_SUCCESS: "Contato movido com sucesso!"
+    CONTACT_MOVE_ERROR: "Erro ao mover contato"
+    EMPTY_STATE:
+      TITLE: "Configure o Pipeline"
+      DESCRIPTION: "Selecione um Custom Attribute do tipo Lista para usar como pipeline"
+      CONFIGURE_BUTTON: "Configurar Atributos"
