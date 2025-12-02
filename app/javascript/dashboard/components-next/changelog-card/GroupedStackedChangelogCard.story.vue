@@ -5,8 +5,8 @@ import GroupedStackedChangelogCard from './GroupedStackedChangelogCard.vue';
 const sampleCards = [
   {
     id: 'chatwoot-captain',
-    title: 'Chatwoot Captain',
-    meta_title: 'Chatwoot Captain',
+    title: 'Fluxo Ti Captain',
+    meta_title: 'Fluxo Ti Captain',
     meta_description:
       'Watch how our latest feature can transform your workflow with powerful automation tools.',
     slug: 'chatwoot-captain',

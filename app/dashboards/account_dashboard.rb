@@ -13,7 +13,7 @@ class AccountDashboard < Administrate::BaseDashboard
                                    limits: AccountLimitsField
                                  }
 
-                                 # Only show manually managed features in Chatwoot Cloud deployment
+                                 # Only show manually managed features in Fluxo Ti Cloud deployment
                                  attributes[:manually_managed_features] = ManuallyManagedFeaturesField if ChatwootApp.chatwoot_cloud?
 
                                  # Add all_features last so it appears after manually_managed_features
