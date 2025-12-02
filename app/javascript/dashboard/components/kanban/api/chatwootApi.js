@@ -13,6 +13,7 @@ chatwootApi.interceptors.request.use(config => {
       const { authToken } = JSON.parse(authData);
       config.headers.api_access_token = authToken;
     } catch (error) {
+      // eslint-disable-next-line no-console
       console.error('Erro ao parsear auth_data:', error);
     }
   }

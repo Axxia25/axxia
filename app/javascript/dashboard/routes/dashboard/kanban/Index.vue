@@ -60,7 +60,7 @@
         :to="`/app/accounts/${currentAccount.id}/settings/custom-attributes`" 
         class="btn btn-link"
       >
-        {{ $t('KANBAN.EMPTY_STATE.CONFIGURE_BUTTON') }} →
+        {{ $t('KANBAN.EMPTY_STATE.CONFIGURE_BUTTON') }}
       </router-link>
     </div>
   </div>
@@ -109,6 +109,7 @@ export default {
           await this.fetchContacts();
         }
       } catch (error) {
+        // eslint-disable-next-line no-console
         console.error('Erro na inicialização:', error);
         this.showError('Erro ao carregar dados iniciais');
       }
@@ -124,6 +125,7 @@ export default {
           attr => attr.attribute_display_type === 'list'
         );
       } catch (error) {
+        // eslint-disable-next-line no-console
         console.error('Erro ao buscar custom attributes:', error);
         throw error;
       }
@@ -137,6 +139,7 @@ export default {
         const response = await this.$store.dispatch('contacts/get');
         this.contacts = Array.isArray(response) ? response : response.data || [];
       } catch (error) {
+        // eslint-disable-next-line no-console
         console.error('Erro ao buscar contatos:', error);
         this.showError('Erro ao carregar contatos');
         this.contacts = [];
@@ -159,6 +162,7 @@ export default {
         
         this.$toast.success(this.$t('KANBAN.CONTACT_MOVED_SUCCESS'));
       } catch (error) {
+        // eslint-disable-next-line no-console
         console.error('Erro ao mover contato:', error);
         this.$toast.error(this.$t('KANBAN.CONTACT_MOVE_ERROR'));
       }

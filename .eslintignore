@@ -1,0 +1,4 @@
+
+# Ignorar arquivos KanbanWoot durante desenvolvimento
+app/javascript/dashboard/components/kanban/debug.js
+app/javascript/dashboard/components/kanban/hooks/useKanbanData.js
