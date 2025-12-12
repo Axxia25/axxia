@@ -8,7 +8,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: axxiatech/fluxo-ti
+  IMAGE_NAME: axxia25/fluxo-ti
 
 jobs:
   build:
